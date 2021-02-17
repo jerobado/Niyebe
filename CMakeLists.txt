@@ -6,8 +6,16 @@
 
 cmake_minimum_required(VERSION 3.10)
 
-# Project name
-project(Niyebe)
+# Project name and version
+project(Niyebe VERSION 0.1)
+
+set (${PROJECT_NAME}_VERSION_MAJOR 0)
+set (${PROJECT_NAME}_VERSION_MINOR 1)
+set (${PROJECT_NAME}_VERSION_PATCH 0)
+
+
+configure_file(include/NiyebeConfig.h.in ../include/NiyebeConfig.h)
+
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
@@ -17,5 +25,11 @@ elseif(WIN32)
     message("Platform: ${CMAKE_SYSTEM_NAME}")    
 endif()
 
+
+# Directories
+include_directories(include)
+
 # Executable
-add_executable(niyebe src/main.cpp)
+add_executable(niyebe
+               src/main.cpp
+               include/NiyebeConfig.h)
