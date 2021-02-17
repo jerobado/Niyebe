@@ -1,0 +1,3 @@
+#define Niyebe_VERSION_MAJOR "@Niyebe_VERSION_MAJOR@"
+#define Niyebe_VERSION_MINOR "@Niyebe_VERSION_MINOR@"
+#define Niyebe_VERSION_PATCH "@Niyebe_VERSION_PATCH@"
