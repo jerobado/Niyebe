@@ -4,3 +4,12 @@ _todo.txt
 # Code editors
 .vscode
 
+# CMake
+/build
+/CMakeFiles
+CMakeCache.txt
+*.cmake
+Makefile
+
+# Executables
+niyebe
