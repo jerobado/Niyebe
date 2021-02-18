@@ -13,3 +13,9 @@ TJ1q!5@!VTo40eUe
 ### Features & Benefits
 - generate random custom password
 
+### Build Instruction
+```
+$ cmake -H. -Bbuild
+$ make -C build
+$ ./build/bin/niyebe
+```
