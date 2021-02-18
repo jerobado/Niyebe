@@ -2,6 +2,13 @@
 #include "NiyebeConfig.h"
 
 
+void random_string(int length);
+char random_lowercase(void);
+char random_uppercase(void);
+char random_special(void);
+
+
+
 int main(int argc, char **argv)
 {
 
