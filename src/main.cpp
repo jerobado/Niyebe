@@ -2,6 +2,8 @@
 #include "NiyebeConfig.h"
 
 
+// for debugging only
+void _debug(void);      // or void _debug(string message);
 
 void display_welcome_message();
 void random_string(int length);
@@ -19,6 +21,10 @@ int main(int argc, char **argv)
 }
 
 
+void _debug()
+{
+    std::cout << "\ni'm here" << std::endl;
+}
 
 
 void display_welcome_message()
