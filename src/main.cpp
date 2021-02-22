@@ -1,4 +1,5 @@
 #include <iostream>
+#include <getopt.h>
 #include "NiyebeConfig.h"
 
 
@@ -16,6 +17,34 @@ char random_special(void);
 int main(int argc, char **argv)
 {
     display_welcome_message();
+
+    int option_char;
+    int str_length;
+
+    while (true)
+    {
+        static struct option long_options[] = {
+            {"length", required_argument, NULL, 'l'},
+            {0, 0, 0, 0}
+        };
+        int option_index = 0;
+
+        option_char = getopt_long(argc, argv, "l:", long_options, &option_index);
+        
+        // Exit loop when no optional character found
+        if (option_char == -1)
+            break;
+        
+        switch (option_char)
+        {
+            case 'l':
+                std::cout << optarg << std::endl;
+                break;
+        }
+
+
+    }
+
     return 0;
 }
 
