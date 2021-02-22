@@ -3,7 +3,7 @@
 
 
 // for debugging only
-void _debug(void);      // or void _debug(string message);
+void printd(std::string message);
 
 void display_welcome_message();
 void random_string(int length);
@@ -16,14 +16,15 @@ char random_special(void);
 int main(int argc, char **argv)
 {
     display_welcome_message();
-
     return 0;
 }
 
 
-void _debug()
+void printd(std::string message)
 {
-    std::cout << "\ni'm here" << std::endl;
+    /* Handy function for printing in the console while debugging. */
+
+    std::cout << message << std::endl;
 }
 
 
