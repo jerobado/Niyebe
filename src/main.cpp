@@ -1,5 +1,7 @@
+#include <chrono>
 #include <iostream>
 #include <getopt.h>
+#include <random>
 #include "NiyebeConfig.h"
 
 
@@ -12,6 +14,8 @@ char random_lowercase(void);
 char random_uppercase(void);
 char random_special(void);
 
+// test
+void random_something(int start, int end);
 
 
 int main(int argc, char **argv)
@@ -43,6 +47,8 @@ int main(int argc, char **argv)
         }
     }
 
+    random_something(95, 122);
+
     return 0;
 }
 
@@ -64,4 +70,15 @@ void display_welcome_message(int argc)
                                << Niyebe_VERSION_PATCH << std::endl;
         std::cout << "Simple password generator for the forgetful\n";
     }
+}
+
+
+void random_something(int start, int end)
+{
+    /* Test function to print a random value */
+    
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::mt19937_64 randomizer (seed);
+    std::uniform_int_distribution<int> choices(start, end);
+    std::cout << "random value: " << choices(randomizer) << std::endl;
 }
