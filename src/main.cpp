@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
         option_char = getopt_long(argc, argv, "l:", long_options, &option_index);
         
-        // Exit loop when no optional character found
+        // Exit loop when no more optional characters to process
         if (option_char == -1)
             break;
         
