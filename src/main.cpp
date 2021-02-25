@@ -9,13 +9,14 @@
 void printd(std::string message);
 
 void display_welcome_message(int argc);
+int random_number(int start, int end);
+
+// TODO: to be implemented
 void random_string(int length);
 char random_lowercase(void);
 char random_uppercase(void);
 char random_special(void);
 
-// test
-void random_something(int start, int end);
 
 
 int main(int argc, char **argv)
@@ -47,8 +48,6 @@ int main(int argc, char **argv)
         }
     }
 
-    random_something(95, 122);
-
     return 0;
 }
 
@@ -73,12 +72,13 @@ void display_welcome_message(int argc)
 }
 
 
-void random_something(int start, int end)
+int random_number(int start, int end)
 {
-    /* Test function to print a random value */
+    /* Return a random number between start and end. */
     
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::mt19937_64 randomizer (seed);
     std::uniform_int_distribution<int> choices(start, end);
-    std::cout << "random value: " << choices(randomizer) << std::endl;
+
+    return choices(randomizer);
 }
