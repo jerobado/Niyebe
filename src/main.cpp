@@ -54,6 +54,9 @@ int main(int argc, char **argv)
         }
     }
 
+    // test
+    std::cout << "char: " << random_lowercase() << "\n";
+
     return 0;
 }
 
@@ -87,4 +90,15 @@ int random_number(int start, int end)
     std::uniform_int_distribution<int> choices(start, end);
 
     return choices(randomizer);
+}
+
+
+char random_lowercase()
+{
+    /* Return a random character between a-z based on its ASCII decimal value. */
+
+    int ascii_value = 0;
+    ascii_value = random_number(97, 122);
+    
+    return char(ascii_value);
 }
