@@ -106,6 +106,17 @@ char random_lowercase()
 }
 
 
+char random_uppercase()
+{
+    /* Return a random character between A-Z based on its ASCII decimal value. */
+
+    int ascii_value = 0;
+    ascii_value = random_number(65, 90);
+
+    return char(ascii_value);
+}
+
+
 void random_string(int length)
 {
     for (int i=0; i < length; ++i)
