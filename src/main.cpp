@@ -45,6 +45,8 @@ int main(int argc, char **argv)
         {
             case 'l':
                 std::cout << optarg << std::endl;
+                str_length = std::stoi(optarg);
+                random_string(str_length);
                 break;
             case 'v':
                 std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
@@ -101,4 +103,14 @@ char random_lowercase()
     ascii_value = random_number(97, 122);
     
     return char(ascii_value);
+}
+
+
+void random_string(int length)
+{
+    for (int i=0; i < length; ++i)
+    {
+        std::cout << random_lowercase();
+    }
+    std::cout << "\n";
 }
