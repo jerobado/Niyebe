@@ -44,7 +44,6 @@ int main(int argc, char **argv)
         switch (option_char)
         {
             case 'l':
-                std::cout << optarg << std::endl;
                 str_length = std::stoi(optarg);
                 random_string(str_length);
                 break;
@@ -55,9 +54,6 @@ int main(int argc, char **argv)
                 break;
         }
     }
-
-    // test
-    std::cout << "char: " << random_lowercase() << "\n";
 
     return 0;
 }
