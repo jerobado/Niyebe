@@ -13,8 +13,8 @@ int random_number(int start, int end);
 
 // TODO: to be implemented
 void random_string(int length);
-char random_lowercase(void);
-char random_uppercase(void);
+char random_lowercase(void);    // ok
+char random_uppercase(void);    // ok
 char random_special(void);
 int random_digit(void);
 
@@ -124,9 +124,22 @@ int random_digit()
 
 void random_string(int length)
 {
+    /* Primary function that will generate a random string based on the given length. */
+
     for (int i=0; i < length; ++i)
     {
-        std::cout << random_lowercase();
+        switch(random_number(1, 3))
+        {
+            case 1:
+                std::cout << random_lowercase();
+                break;
+            case 2:
+                std::cout << random_uppercase();
+                break;
+            case 3:
+                std::cout << random_digit();
+                break;
+        }
     }
     std::cout << "\n";
 }
