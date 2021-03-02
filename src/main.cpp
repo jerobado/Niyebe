@@ -16,6 +16,7 @@ void random_string(int length);
 char random_lowercase(void);
 char random_uppercase(void);
 char random_special(void);
+int random_digit(void);
 
 
 
@@ -110,6 +111,14 @@ char random_uppercase()
     ascii_value = random_number(65, 90);
 
     return char(ascii_value);
+}
+
+
+int random_digit()
+{
+    /* Return a random number between 0-9. */
+
+    return random_number(0, 9);
 }
 
 
