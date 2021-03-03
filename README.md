@@ -21,3 +21,8 @@ $ cmake -H. -Bbuild
 $ make -C build
 $ ./build/bin/niyebe
 ```
+
+### Resources
+- [ASCII Table]()
+- [How Do Random Password Generators Work?](https://blog.dashlane.com/how-random-password-generators-work/)
+- [The big password mistake that hackers are hoping you’ll make](http://stateofthenet.net/2014/10/the-big-password-mistake-that-hackers-are-hoping-youll-make/)
