@@ -1,7 +1,7 @@
 Niyebe
 ---
 
-_Niyebe_, simple password generator for the forgetful
+_Niyebe_, simple pseudo-random password generator for the forgetful
 
 ### Usage
 ```
