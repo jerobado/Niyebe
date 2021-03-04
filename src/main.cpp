@@ -15,7 +15,7 @@ int random_number(int start, int end);
 void random_string(int length);
 char random_lowercase(void);    // ok
 char random_uppercase(void);    // ok
-char random_special(void);
+char random_symbol(void);
 int random_digit(void);
 
 
@@ -122,13 +122,24 @@ int random_digit()
 }
 
 
+char random_symbol()
+{
+    /* Return a random symbol. */
+
+    int ascii_value = 0;
+    ascii_value = random_number(33, 47);
+
+    return char(ascii_value);
+}
+
+
 void random_string(int length)
 {
     /* Primary function that will generate a random string based on the given length. */
 
     for (int i=0; i < length; ++i)
     {
-        switch(random_number(1, 3))
+        switch(random_number(1, 4))
         {
             case 1:
                 std::cout << random_lowercase();
@@ -138,6 +149,9 @@ void random_string(int length)
                 break;
             case 3:
                 std::cout << random_digit();
+                break;
+            case 4:
+                std::cout << random_symbol();
                 break;
         }
     }
