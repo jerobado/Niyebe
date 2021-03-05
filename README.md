@@ -6,7 +6,7 @@ _Niyebe_, simple pseudo-random password generator for the forgetful
 ### Usage
 ```
 $ niyebe -l 16      # generate random string with 16 characters
-TJ1q!5@!VTo40eUe
+y}n59q\'1W8o=4_i
 ```
 
 ### Features & Benefits
