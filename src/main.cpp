@@ -15,8 +15,8 @@ int random_number(int start, int end);
 void random_string(int length);
 char random_lowercase(void);    // ok
 char random_uppercase(void);    // ok
-char random_symbol(void);
-int random_digit(void);
+char random_symbol(void);       // ok
+int random_digit(void);         // ok
 
 
 
@@ -127,7 +127,17 @@ char random_symbol()
     /* Return a random symbol. */
 
     int ascii_value = 0;
-    ascii_value = random_number(33, 47);
+    int choice = 0;
+
+    choice = random_number(1, 4);
+    if (choice == 1)
+        ascii_value = random_number(33, 47);
+    else if (choice == 2)
+        ascii_value = random_number(58, 64);
+    else if (choice == 3)
+        ascii_value = random_number(91, 96);
+    else if (choice == 4)
+        ascii_value = random_number(123, 126);   
 
     return char(ascii_value);
 }
