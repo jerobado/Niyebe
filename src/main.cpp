@@ -10,8 +10,6 @@ void printd(std::string message);
 
 void display_welcome_message(int argc);
 int random_number(int start, int end);
-
-// TODO: to be implemented
 void random_string(int length);
 char random_lowercase(void);    // ok
 char random_uppercase(void);    // ok
@@ -75,7 +73,7 @@ void display_welcome_message(int argc)
         std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
                                << Niyebe_VERSION_MINOR << "."
                                << Niyebe_VERSION_PATCH << std::endl;
-        std::cout << "Simple password generator for the forgetful\n";
+        std::cout << "Simple pseudo-random password generator for the forgetful\n";
     }
 }
 
