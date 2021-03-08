@@ -13,18 +13,9 @@ set (${PROJECT_NAME}_VERSION_MAJOR 0)
 set (${PROJECT_NAME}_VERSION_MINOR 1)
 set (${PROJECT_NAME}_VERSION_PATCH 0)
 
-
 configure_file(include/NiyebeConfig.h.in ../include/NiyebeConfig.h)
 
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-if(UNIX)
-    message("Platform: ${CMAKE_SYSTEM_NAME}")
-elseif(WIN32)
-    message("Platform: ${CMAKE_SYSTEM_NAME}")    
-endif()
-
 
 # Directories
 include_directories(include)
@@ -33,3 +24,15 @@ include_directories(include)
 add_executable(niyebe
                src/main.cpp
                include/NiyebeConfig.h)
+
+# Install
+# cmake --build build --config Release --target install
+if(UNIX)
+    message("Platform: ${CMAKE_SYSTEM_NAME}")
+    install(PROGRAMS "${CMAKE_BINARY_DIR}/bin/niyebe"
+            DESTINATION "~/Documents/Niyebe")
+elseif(WIN32)
+    message("Platform: ${CMAKE_SYSTEM_NAME}")
+    install(PROGRAMS "${CMAKE_BINARY_DIR}/bin/niyebe"
+            DESTINATION "{CMAKE_INSTALL_PREFIX}")
+endif()
