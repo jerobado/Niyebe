@@ -15,6 +15,12 @@ y}n59q\'1W8o=4_i
 ### Random Algorithm
 _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister) to generate a pseudo-random number which is provided by the `<random>` header in the C++ standard library.
 
+### Software Requirements
+- CMake
+
+### System Requirements
+- Operating System: Linux (Ubuntu)
+
 ### Build Instruction
 ```
 $ cmake -H. -Bbuild
