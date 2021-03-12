@@ -17,9 +17,10 @@ _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_
 
 ### Software Requirements
 - CMake
+- Cygwin (if you're on Windows)
 
 ### System Requirements
-- Operating System: Linux (Ubuntu)
+- Operating System: Linux (Ubuntu 64-bit)
 
 ### Build Instruction
 ```
