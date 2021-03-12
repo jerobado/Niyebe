@@ -33,3 +33,6 @@ $ ./build/bin/niyebe
 - [ASCII Table](https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html)
 - [How Do Random Password Generators Work?](https://blog.dashlane.com/how-random-password-generators-work/)
 - [The big password mistake that hackers are hoping you’ll make](http://stateofthenet.net/2014/10/the-big-password-mistake-that-hackers-are-hoping-youll-make/)
+
+### License
+![GPLv3 logo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/GPLv3_Logo.svg/320px-GPLv3_Logo.svg.png)
