@@ -31,5 +31,5 @@ main.o: $(SRC-DIR)main.cpp $(INCLUDE-DIR)NiyebeConfig.h
 	@echo -e "\n$(COMPILER) $< --> $@"
 
 clean:
-	@rm -f *.o *.exe
+	@rm -f *.o $(TARGET)
 	@echo "Removed *.o *.exe files"
