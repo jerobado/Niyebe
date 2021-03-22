@@ -24,11 +24,11 @@ objects = main.o
 # Rules & Recipes
 $(TARGET): $(objects)
 	@$(COMPILER) $(static-flag) -o $(TARGET) $(objects)
-	@echo -e "$(COMPILER) $< --> $@"
+	@echo "$(COMPILER) $< --> $@"
 
 main.o: $(SRC-DIR)main.cpp $(INCLUDE-DIR)NiyebeConfig.h
 	@$(COMPILER) $(static-flag) $(i-flag) -c $(SRC-DIR)main.cpp
-	@echo -e "\n$(COMPILER) $< --> $@"
+	@echo "$(COMPILER) $< --> $@"
 
 clean:
 	@rm -f *.o $(TARGET)
