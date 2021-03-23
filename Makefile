@@ -30,6 +30,18 @@ main.o: $(SRC-DIR)main.cpp $(INCLUDE-DIR)NiyebeConfig.h
 	@$(COMPILER) $(static-flag) $(i-flag) -c $(SRC-DIR)main.cpp
 	@echo "$(COMPILER) $< --> $@"
 
+install:
+ifneq (,$(wildcard ./niyebe))
+	@rm -rf /opt/niyebe
+	@mkdir /opt/niyebe
+	@cp niyebe /opt/niyebe
+	@echo "Successfully installed niyebe in /opt/niyebe."
+else
+	@echo "Source code not yet compiled."
+	@echo "Run 'make' to compile."
+endif
+
+
 clean:
 	@rm -f *.o $(TARGET)
 	@echo "Removed *.o *.exe files"
