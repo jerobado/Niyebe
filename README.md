@@ -1,6 +1,5 @@
 Niyebe
 ---
-
 _Niyebe_, simple pseudo-random password generator for the forgetful
 
 ### Usage
@@ -23,7 +22,7 @@ _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_
 ### System Requirements
 - Operating System: Linux (Ubuntu 64-bit)
 
-### Build Instruction
+### Build & Install Instruction
 
 Using `make`
 ```
@@ -37,6 +36,12 @@ $ cmake -H. -Bbuild
 $ make -C build
 $ ./build/bin/niyebe
 ```
+
+To install
+```
+$ sudo make install
+```
+This will install/copy the compiled executable to `/opt/niyebe`.
 
 ### Resources
 - [ASCII Table](https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html)
