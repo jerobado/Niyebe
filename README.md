@@ -43,6 +43,12 @@ $ sudo make install
 ```
 This will install/copy the compiled executable to `/opt/niyebe`.
 
+To add `niyebe` to PATH
+```
+$ echo "export PATH="$PATH:/opt/niyebe"" >> ~/.bashrc
+$ source ~/.bashrc
+```
+
 ### Resources
 - [ASCII Table](https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html)
 - [How Do Random Password Generators Work?](https://blog.dashlane.com/how-random-password-generators-work/)
