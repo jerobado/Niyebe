@@ -225,6 +225,7 @@ char random_symbol()
 }
 
 
+// [] TODO: add simple string stistics, ie, total length, number of characters, etc.
 void random_string(int length)
 {
     /* Primary function that will generate a random string based on the given length. */
