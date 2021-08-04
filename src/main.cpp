@@ -111,6 +111,7 @@ void display_welcome_message(int argc)
 }
 
 
+// [] TODO: analyze generated seed if its unique and no duplicate
 int random_number(int start, int end)
 {
     /* Return a random number between start and end. */
@@ -192,6 +193,7 @@ void random_string(int length)
         {
             case 1:
                 std::cout << random_lowercase_v2();
+                // std::cout << ASCII_LOWERCASE[random_number(97, 100)];   // [] TODO: use next
                 break;
             case 2:
                 std::cout << random_uppercase();
