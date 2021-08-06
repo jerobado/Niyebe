@@ -19,6 +19,43 @@ std::unordered_map<int, char> ASCII_DIGIT {
     {9, '9'},
 };
 
+
+std::unordered_map<int, char> ASCII_SYMBOL {
+    { 1, '!'},
+    { 2, '"'},
+    { 3, '#'},
+    { 4, '$'},
+    { 5, '%'},
+    { 6, '&'},
+    { 7, '\''},
+    { 8, '('},
+    { 9, ')'},
+    {10, '*'},
+    {11, '+'},
+    {12, ','},
+    {13, '-'},
+    {14, '.'},
+    {15, '/'},
+    {16, ':'},
+    {17, ';'},
+    {18, '<'},
+    {19, '='},
+    {20, '>'},
+    {21, '?'},
+    {22, '@'},
+    {23, '['},
+    {24, '\\'},
+    {25, ']'},
+    {26, '^'},
+    {27, '_'},
+    {28, '`'},
+    {29, '{'},
+    {30, '|'},
+    {31, '}'},
+    {32, '~'},
+};
+
+
 std::unordered_map<int, char> ASCII_UPPERCASE {
     {65, 'A'},
     {66, 'B'},
@@ -84,10 +121,11 @@ void printd(std::string message);
 void display_welcome_message(int argc);
 int random_number(int start, int end);
 void random_string(int length);
-char random_lowercase(void);    // ok
-char random_uppercase(void);    // ok
-char random_symbol(void);       // ok
-int random_digit(void);         // ok
+
+char random_lowercase(void);    // for potential deletion
+char random_uppercase(void);    // for potential deletion
+char random_symbol(void);       // for potential deletion
+int random_digit(void);         // for potential deletion
 
 // TEST: new functions using unordered_map
 char random_lowercase_v2(void);
@@ -244,7 +282,7 @@ void random_string(int length)
                 std::cout << ASCII_DIGIT[random_number(0, 9)];
                 break;
             case 4:
-                std::cout << random_symbol();
+                std::cout << ASCII_SYMBOL[random_number(1, 32)];
                 break;
         }
     }
