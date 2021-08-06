@@ -1,6 +1,5 @@
 Niyebe
 ---
-
 _Niyebe_, simple pseudo-random password generator for the forgetful
 
 ### Usage
@@ -16,16 +15,38 @@ y}n59q\'1W8o=4_i
 _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister) to generate a pseudo-random number which is provided by the `<random>` header in the C++ standard library.
 
 ### Software Requirements
+- build-essential
 - CMake
+- Cygwin (if you're on Windows)
 
 ### System Requirements
-- Operating System: Linux (Ubuntu)
+- Operating System: Linux (Ubuntu 64-bit)
 
-### Build Instruction
+### Build & Install Instruction
+
+Using `make`
+```
+$ make
+$ ./niyebe
+```
+
+Using `cmake`
 ```
 $ cmake -H. -Bbuild
 $ make -C build
 $ ./build/bin/niyebe
+```
+
+To install
+```
+$ sudo make install
+```
+This will install/copy the compiled executable to `/opt/niyebe`.
+
+To add `niyebe` to PATH
+```
+$ echo "export PATH="$PATH:/opt/niyebe"" >> ~/.bashrc
+$ source ~/.bashrc
 ```
 
 ### Resources
@@ -33,5 +54,5 @@ $ ./build/bin/niyebe
 - [How Do Random Password Generators Work?](https://blog.dashlane.com/how-random-password-generators-work/)
 - [The big password mistake that hackers are hoping you’ll make](http://stateofthenet.net/2014/10/the-big-password-mistake-that-hackers-are-hoping-youll-make/)
 
-### Licence
-- LGPL
+### License
+![GPLv3 logo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/GPLv3_Logo.svg/320px-GPLv3_Logo.svg.png)

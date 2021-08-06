@@ -9,7 +9,10 @@ _todo.txt
 /CMakeFiles
 CMakeCache.txt
 *.cmake
-Makefile
+
+# Compiler stuff
+*.o
+*.exe
 
 # Executables
 niyebe
