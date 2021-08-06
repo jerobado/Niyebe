@@ -37,8 +37,8 @@ ifneq (,$(wildcard ./niyebe))
 	@cp niyebe /opt/niyebe
 	@echo "Successfully installed niyebe in /opt/niyebe."
 else
-	@echo "Source code not yet compiled."
-	@echo "Run 'make' to compile."
+	@echo "INSTALL ERROR: Source code not yet compiled.\n"
+	@echo "Suggested fix: Run 'make' to compile."
 endif
 
 
