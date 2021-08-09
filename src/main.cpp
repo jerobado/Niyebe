@@ -113,22 +113,13 @@ std::unordered_map<int, char> ASCII_LOWERCASE {
 };
 
 
-// for debugging only
-void printd(std::string message);
-
+// Function declration
 void display_welcome_message(int argc);
 int random_number(int start, int end);
 void random_string(int length);
 
-char random_lowercase(void);    // for potential deletion
-char random_uppercase(void);    // for potential deletion
-char random_symbol(void);       // for potential deletion
-int random_digit(void);         // for potential deletion
 
-// TEST: new functions using unordered_map
-char random_lowercase_v2(void);
-
-
+// Main starts here
 int main(int argc, char **argv)
 {
     display_welcome_message(argc);
@@ -169,14 +160,6 @@ int main(int argc, char **argv)
 }
 
 
-void printd(std::string message)
-{
-    /* Handy function for printing in the console while debugging. */
-
-    std::cout << message << std::endl;
-}
-
-
 void display_welcome_message(int argc)
 {
     if (argc == 1)
@@ -199,36 +182,6 @@ int random_number(int start, int end)
     std::uniform_int_distribution<int> choices(start, end);
 
     return choices(randomizer);
-}
-
-
-char random_lowercase()
-{
-    /* Return a random character between a-z based on its ASCII decimal value. */
-
-    int ascii_value = 0;
-    ascii_value = random_number(97, 122);
-    
-    return char(ascii_value);
-}
-
-
-char random_lowercase_v2()
-{
-   /* Get and return a random character in ASCII_LOWERCASE. */ 
-
-    return ASCII_LOWERCASE[random_number(97, 122)];
-}
-
-
-char random_uppercase()
-{
-    /* Return a random character between A-Z based on its ASCII decimal value. */
-
-    int ascii_value = 0;
-    ascii_value = random_number(65, 90);
-
-    return char(ascii_value);
 }
 
 
