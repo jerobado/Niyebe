@@ -19,7 +19,7 @@ static-flag = -static -static-libstdc++ -static-libgcc
 
 # Source
 sources = main.cpp
-objects = main.o
+objects = main.o niyebe.o
 
 # Rules & Recipes
 $(TARGET): $(objects)
@@ -28,6 +28,10 @@ $(TARGET): $(objects)
 
 main.o: $(SRC-DIR)main.cpp $(INCLUDE-DIR)NiyebeConfig.h
 	@$(COMPILER) $(static-flag) $(i-flag) -c $(SRC-DIR)main.cpp
+	@echo "$(COMPILER) $< --> $@"
+
+niyebe.o: $(SRC-DIR)niyebe.cpp
+	@$(COMPILER) $(static-flag) $(i-flag) -c $(SRC-DIR)niyebe.cpp
 	@echo "$(COMPILER) $< --> $@"
 
 install:
