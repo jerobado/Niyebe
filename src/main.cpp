@@ -185,14 +185,6 @@ int random_number(int start, int end)
 }
 
 
-int random_digit()
-{
-    /* Return a random number between 0-9. */
-
-    return random_number(0, 9);
-}
-
-
 char random_symbol()
 {
     /* Return a random symbol. */
