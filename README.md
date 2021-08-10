@@ -55,4 +55,4 @@ $ source ~/.bashrc
 - [The big password mistake that hackers are hoping you’ll make](http://stateofthenet.net/2014/10/the-big-password-mistake-that-hackers-are-hoping-youll-make/)
 
 ### License
-![GNU LGPL v3](https://upload.wikimedia.org/wikipedia/commons/3/3b/LGPLv3_Logo.svg)
+<img width="40%" height="auto" title="GNU LGPL v3" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/LGPLv3_Logo.svg">
