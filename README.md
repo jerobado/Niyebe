@@ -15,7 +15,7 @@ y}n59q\'1W8o=4_i
 _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister) to generate a pseudo-random number which is provided by the `<random>` header in the C++ standard library.
 
 ### Software Requirements
-- build-essential
+- GNU Compiler Collection
 - CMake
 - Cygwin (if you're on Windows)
 
