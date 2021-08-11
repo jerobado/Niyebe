@@ -52,3 +52,19 @@ void random_string(int length)
     }
     std::cout << "\n";
 }
+
+
+void length_option(std::string input)
+{
+    try
+    {
+        int str_length;
+        str_length = std::stoi(input);
+        random_string(str_length);
+    }
+    catch(const std::invalid_argument& e)
+    {
+        std::cout << "INPUT ERROR: " << "\"" << input << "\"" << " is not a valid number.\n\n";
+        std::cout << "Suggestion: Try entering numbers from 1-100.\n";
+    }
+}

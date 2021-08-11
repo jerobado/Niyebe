@@ -7,7 +7,7 @@ int main(int argc, char **argv)
     display_welcome_message(argc);
 
     int option_char;
-    int str_length;
+    
 
     while (true)
     {
@@ -26,9 +26,8 @@ int main(int argc, char **argv)
         
         switch (option_char)
         {
-            case 'l':
-                str_length = std::stoi(optarg);
-                random_string(str_length);
+            case 'l':          
+                length_option(optarg);
                 break;
             case 'v':
                 std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
