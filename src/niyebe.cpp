@@ -68,3 +68,11 @@ void length_option(std::string input)
         std::cout << "Suggestion: Try entering numbers from 1-100.\n";
     }
 }
+
+
+void version_option()
+{
+    std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
+                           << Niyebe_VERSION_MINOR << "."
+                           << Niyebe_VERSION_PATCH << std::endl;
+}

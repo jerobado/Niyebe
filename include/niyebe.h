@@ -11,3 +11,4 @@ void random_string(int length);
 
 // Options
 void length_option(std::string input);
+void version_option();

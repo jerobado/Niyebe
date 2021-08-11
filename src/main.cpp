@@ -4,11 +4,10 @@
 
 int main(int argc, char **argv)
 {
-    display_welcome_message(argc);
-
     int option_char;
     
-
+    display_welcome_message(argc);
+      
     while (true)
     {
         static struct option long_options[] = {
@@ -17,7 +16,6 @@ int main(int argc, char **argv)
             {0, 0, 0, 0}
         };
         int option_index = 0;
-
         option_char = getopt_long(argc, argv, "vl:", long_options, &option_index);
         
         // Exit loop when no more optional characters to process
@@ -30,9 +28,7 @@ int main(int argc, char **argv)
                 length_option(optarg);
                 break;
             case 'v':
-                std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
-                                       << Niyebe_VERSION_MINOR << "."
-                                       << Niyebe_VERSION_PATCH << std::endl;
+                version_option();
                 break;
         }
     }
