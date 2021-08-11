@@ -6,9 +6,7 @@ void display_welcome_message(int argc)
 {
     if (argc == 1)
     {
-        std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
-                               << Niyebe_VERSION_MINOR << "."
-                               << Niyebe_VERSION_PATCH << std::endl;
+        version_option();
         std::cout << "Simple pseudo-random password generator for the forgetful\n";
     }
 }
