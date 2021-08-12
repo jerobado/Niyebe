@@ -11,12 +11,13 @@ int main(int argc, char **argv)
     while (true)
     {
         static struct option long_options[] = {
-            {"length", required_argument, NULL, 'l'},
-            {"version", no_argument, NULL, 'v'},
+            {"help",    no_argument,        NULL, 'h'},
+            {"length",  required_argument,  NULL, 'l'},
+            {"version", no_argument,        NULL, 'v'},
             {0, 0, 0, 0}
         };
         int option_index = 0;
-        option_char = getopt_long(argc, argv, "vl:", long_options, &option_index);
+        option_char = getopt_long(argc, argv, "hvl:", long_options, &option_index);
         
         // Exit loop when no more optional characters to process
         if (option_char == -1)
@@ -24,6 +25,9 @@ int main(int argc, char **argv)
         
         switch (option_char)
         {
+            case 'h':
+                help_option();
+                break;
             case 'l':          
                 length_option(optarg);
                 break;

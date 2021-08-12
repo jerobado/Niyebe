@@ -7,7 +7,8 @@ void display_welcome_message(int argc)
     if (argc == 1)
     {
         version_option();
-        std::cout << "Simple pseudo-random password generator for the forgetful\n";
+        std::cout << "Simple pseudo-random password generator for the forgetful.\n\n";
+        help_option();
     }
 }
 
@@ -49,6 +50,22 @@ void random_string(int length)
         }
     }
     std::cout << "\n";
+}
+
+
+// Options
+void help_option()
+{
+    std::cout << "Usage: niyebe [--length] <number>\n";
+    std::cout << std::endl;
+    std::cout << "Example:\n";
+    std::cout << "$ niyebe --length 16\n";
+    random_string(16);
+    std::cout << std::endl;
+    std::cout << "Options:\n";
+    std::cout << " -h, --help\t\t" << "Display this information\n";
+    std::cout << " -l, --length\t\t" << "Generate pseudo-random string based on given length\n";
+    std::cout << " -v, --version\t\t" << "Display the program's current version\n";
 }
 
 

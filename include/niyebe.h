@@ -10,5 +10,6 @@ int random_number(int start, int end);
 void random_string(int length);
 
 // Options
+void help_option();
 void length_option(std::string input);
 void version_option();
