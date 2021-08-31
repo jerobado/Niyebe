@@ -36,10 +36,10 @@ niyebe.o: $(SRC-DIR)niyebe.cpp
 
 install:
 ifneq (,$(wildcard ./niyebe))
-	@rm -rf /opt/niyebe
-	@mkdir /opt/niyebe
-	@cp niyebe /opt/niyebe
-	@echo "Successfully installed niyebe in /opt/niyebe."
+	@rm -rf /opt/Niyebe
+	@mkdir /opt/Niyebe
+	@cp niyebe /opt/Niyebe
+	@echo "Successfully installed niyebe in /opt/Niyebe."
 else
 	@echo "INSTALL ERROR: Source code not yet compiled.\n"
 	@echo "Suggested fix: Run 'make' to compile."
