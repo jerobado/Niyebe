@@ -16,6 +16,7 @@ INCLUDE-DIR = include/
 # Flags
 i-flag = -I include
 static-flag = -static -static-libstdc++ -static-libgcc
+compiler-flag = -std=c++20 -Wall -Wextra
 
 # Source
 sources = main.cpp
@@ -24,15 +25,15 @@ objects = main.o niyebe.o
 # Rules & Recipes
 $(TARGET): $(objects)
 	@$(COMPILER) $(static-flag) -o $(TARGET) $(objects)
-	@echo "$(COMPILER) $< --> $@"
+	@echo [LINK] $(COMPILER) $(static-flag) $< - $@
 
 main.o: $(SRC-DIR)main.cpp $(INCLUDE-DIR)NiyebeConfig.h
-	@$(COMPILER) $(static-flag) $(i-flag) -c $(SRC-DIR)main.cpp
-	@echo "$(COMPILER) $< --> $@"
+	@$(COMPILER) $(i-flag) $(compiler-flag) $(static-flag) -c $(SRC-DIR)main.cpp
+	@echo [COMPILE] $(COMPILER) $(i-flag) $(compiler-flag) $< - $@
 
 niyebe.o: $(SRC-DIR)niyebe.cpp
-	@$(COMPILER) $(static-flag) $(i-flag) -c $(SRC-DIR)niyebe.cpp
-	@echo "$(COMPILER) $< --> $@"
+	@$(COMPILER) $(i-flag) $(compiler-flag) $(static-flag) -c $(SRC-DIR)niyebe.cpp
+	@echo [COMPILE] $(COMPILER) $(i-flag) $(compiler-flag) $< - $@
 
 install:
 ifneq (,$(wildcard ./niyebe))
