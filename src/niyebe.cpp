@@ -13,7 +13,7 @@ void display_welcome_message(int argc)
 }
 
 
-void parse_command(int argc, char **argv)
+std::optional<int> parse_command(int argc, char **argv)
 {
     int option_char;
     while (true)
@@ -29,19 +29,18 @@ void parse_command(int argc, char **argv)
         
         // Exit loop when no more optional characters to process
         if (option_char == -1)
-            break;
+            return std::nullopt;
         
         switch (option_char)
         {
             case 'h':
                 help_option();
-                break;
+                return std::nullopt;
             case 'l':          
-                length_option(optarg);
-                break;
+                return length_option(optarg);
             case 'v':
                 version_option();
-                break;
+                return std::nullopt;
         }
     }
 }
@@ -103,18 +102,19 @@ void help_option()
 }
 
 
-void length_option(std::string input)
+std::optional<int> length_option(std::string input)
 {
     try
     {
-        int str_length;
-        str_length = std::stoi(input);
-        random_string(str_length);
+        int string_length;
+        string_length = std::stoi(input);
+        return string_length;
     }
     catch(const std::invalid_argument& e)
     {
         std::cout << "INPUT ERROR: " << "\"" << input << "\"" << " is not a valid number.\n\n";
         std::cout << "Suggestion: Try entering numbers from 1-100.\n";
+        return std::nullopt;
     }
 }
 
