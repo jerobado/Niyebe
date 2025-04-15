@@ -47,5 +47,10 @@ endif
 
 
 clean:
+ifeq ($(OS),Windows_NT)
+	@del *.o *.exe
+	@echo "Removed *.o *.exe files"
+else
 	@rm -f *.o $(TARGET)
 	@echo "Removed *.o *.exe files"
+endif
