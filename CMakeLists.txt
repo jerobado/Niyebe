@@ -7,11 +7,11 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Project name and version
-project(Niyebe VERSION 1.0.0)
+project(Niyebe VERSION 1.1.0)
 
 set (${PROJECT_NAME}_VERSION_MAJOR 1)
-set (${PROJECT_NAME}_VERSION_MINOR 0)
-set (${PROJECT_NAME}_VERSION_PATCH "0a")
+set (${PROJECT_NAME}_VERSION_MINOR 1)
+set (${PROJECT_NAME}_VERSION_PATCH "0-develop")
 
 configure_file(include/NiyebeConfig.h.in ../include/NiyebeConfig.h)
 
