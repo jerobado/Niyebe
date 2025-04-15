@@ -17,7 +17,7 @@ _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_
 ### Software Requirements
 - GNU Compiler Collection
 - CMake
-- Cygwin (if you're on Windows)
+- Cygwin or MinGW (if you're on Windows)
 
 ### System Requirements
 - Operating System: Linux (Ubuntu 64-bit)
@@ -28,6 +28,15 @@ Using `make`
 ```
 $ make
 $ ./niyebe
+```
+
+Or `mingw32-make` on Windows
+```bash
+> mingw32-make
+"x86_64-w64-mingw32-g++ src/main.cpp --> main.o"
+"x86_64-w64-mingw32-g++ src/niyebe.cpp --> niyebe.o"
+"x86_64-w64-mingw32-g++ main.o --> niyebe.exe"
+> niyebe.exe
 ```
 
 Using `cmake`
