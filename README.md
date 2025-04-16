@@ -14,15 +14,39 @@ y}n59q\'1W8o=4_i
 ### Random Algorithm
 _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister) to generate a pseudo-random number which is provided by the `<random>` header in the C++ standard library.
 
-### Software Requirements
-- GNU Compiler Collection
-- CMake
-- Cygwin or MinGW (if you're on Windows)
 
 ### System Requirements
-- Operating System: Linux (Ubuntu 64-bit)
+- Operating System: Linux (Ubuntu 64-bit) or Windows 10/11 (64-bit)
 
-### Build & Install Instruction
+## Software Requirements
+### Windows
+- CMake
+- MinGW or Cygwin
+
+### Linux
+- GNU Compiler Collection
+
+
+## Build Instruction
+
+### Windows
+
+Using `cmake`
+
+```
+> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -B build
+> cmake --build build
+> .\build\bin\niyebe.exe 
+```
+
+Using `mingw32-make`
+
+```
+> mingw32-make
+> niyebe.exe
+```
+
+### Linux
 
 Using `make`
 ```
@@ -30,23 +54,11 @@ $ make
 $ ./niyebe
 ```
 
-Or `mingw32-make` on Windows
-```bash
-> mingw32-make
-"x86_64-w64-mingw32-g++ src/main.cpp --> main.o"
-"x86_64-w64-mingw32-g++ src/niyebe.cpp --> niyebe.o"
-"x86_64-w64-mingw32-g++ main.o --> niyebe.exe"
-> niyebe.exe
-```
 
-Using `cmake`
-```
-$ cmake -H. -Bbuild
-$ make -C build
-$ ./build/bin/niyebe
-```
+## Install Instruction
 
-To install
+### Linux
+
 ```
 $ sudo make install
 ```
