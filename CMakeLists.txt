@@ -1,8 +1,17 @@
-# Build instruction
-# $ cmake -H. -Bbuild
-# $ make -C build
-# $ ./build/bin/niyebe
+#[[
+Build instruction
 
+Windows
+> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -B build
+> cmake --build build
+> .\build\bin\niyebe.exe 
+
+Linux
+$ cmake -H. -Bbuild
+$ make -C build
+$ ./build/bin/niyebe
+
+]]
 
 cmake_minimum_required(VERSION 3.10)
 
@@ -23,6 +32,7 @@ include_directories(include)
 # Executable
 add_executable(niyebe
                src/main.cpp
+               src/niyebe.cpp
                include/NiyebeConfig.h)
 
 # Install
