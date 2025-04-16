@@ -15,21 +15,24 @@ $ ./build/bin/niyebe
 
 cmake_minimum_required(VERSION 3.10)
 
-# Project name and version
 project(Niyebe VERSION 1.1.0)
 
-set (${PROJECT_NAME}_VERSION_MAJOR 1)
-set (${PROJECT_NAME}_VERSION_MINOR 1)
-set (${PROJECT_NAME}_VERSION_PATCH "0-develop")
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+
+set(${PROJECT_NAME}_VERSION_MAJOR 1)
+set(${PROJECT_NAME}_VERSION_MINOR 1)
+set(${PROJECT_NAME}_VERSION_PATCH "0-develop")
 
 configure_file(include/NiyebeConfig.h.in ../include/NiyebeConfig.h)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# Directories
 include_directories(include)
 
-# Executable
 add_executable(niyebe
                src/main.cpp
                src/niyebe.cpp
