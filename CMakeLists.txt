@@ -17,6 +17,12 @@ cmake_minimum_required(VERSION 3.10)
 
 project(Niyebe VERSION 1.1.0)
 
+set(OPENSSL_ROOT_DIR "C:/Qt/Tools/OpenSSLv3/Win_x64")
+set(OPENSSL_INCLUDE_DIR "${OPENSSL_ROOT_DIR}/include")
+set(OPENSSL_LIBRARIES "${OPENSSL_ROOT_DIR}/lib/libssl.lib;${OPENSSL_ROOT_DIR}/lib/libcrypto.lib")
+
+find_package(OpenSSL REQUIRED)
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -32,12 +38,15 @@ configure_file(include/NiyebeConfig.h.in ../include/NiyebeConfig.h)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+include_directories(OPENSSL_ROOT_DIR)
 include_directories(include)
 
 add_executable(niyebe
                src/main.cpp
                src/niyebe.cpp
                include/NiyebeConfig.h)
+
+target_link_libraries(niyebe PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 
 # Install
 # cmake --build build --config Release --target install
