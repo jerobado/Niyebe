@@ -1,5 +1,6 @@
 #include "ascii_characters.h"
 #include "niyebe.h"
+#include <openssl/opensslv.h>
 
 
 void display_welcome_message(int argc)
@@ -7,7 +8,7 @@ void display_welcome_message(int argc)
     if (argc == 1)
     {
         version_option();
-        std::cout << "Simple pseudo-random password generator for the forgetful.\n\n";
+        std::cout << "\nSimple pseudo-random password generator for the forgetful.\n\n";
         help_option();
     }
 }
@@ -124,4 +125,5 @@ void version_option()
     std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
                            << Niyebe_VERSION_MINOR << "."
                            << Niyebe_VERSION_PATCH << std::endl;
+    std::cout << OPENSSL_VERSION_TEXT << std::endl;                           
 }
