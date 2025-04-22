@@ -33,10 +33,20 @@ _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_
 
 Using `cmake`
 
+Debug build
+
 ```
-> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -B build
-> cmake --build build
-> .\build\bin\niyebe.exe 
+> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Debug -B build/debug
+> cmake --build build/debug
+> .\build\debug\bin\niyebe.exe 
+```
+
+Release build
+
+```
+> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Release -B build/release
+> cmake --build build/release
+> .\build\release\bin\niyebe.exe 
 ```
 
 Using `mingw32-make`
@@ -53,7 +63,6 @@ Using `make`
 $ make
 $ ./niyebe
 ```
-
 
 ## Install Instruction
 
