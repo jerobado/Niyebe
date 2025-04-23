@@ -3,6 +3,7 @@ _todo.txt
 
 # Code editors
 .vscode
+.vs
 
 # CMake
 /build
