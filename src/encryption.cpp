@@ -5,7 +5,6 @@
 
 int get_random_number(int min, int max)
 {
-    // TODO: not executing, no output wtf!
     unsigned char random_byte;
     if (RAND_bytes(&random_byte, 1) != 1)
     {
@@ -17,6 +16,4 @@ int get_random_number(int min, int max)
     int random_number = (random_byte % range) + min;
 
     return random_number;
-
-    return 0;
 }
