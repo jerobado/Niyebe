@@ -44,6 +44,7 @@ include_directories(include)
 add_executable(niyebe
                src/main.cpp
                src/niyebe.cpp
+               src/encryption.cpp
                include/NiyebeConfig.h)
 
 target_link_libraries(niyebe PRIVATE OpenSSL::SSL OpenSSL::Crypto)
