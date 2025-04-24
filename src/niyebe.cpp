@@ -70,16 +70,16 @@ void random_string(int length)
         switch(random_number(1, 4))
         {
             case 1:
-                std::cout << ASCII_LOWERCASE[random_number(1, 26)];
+                std::cout << ASCII_LOWERCASE.at(random_number(1, 26));
                 break;
             case 2:
-                std::cout << ASCII_UPPERCASE[random_number(1, 26)];
+                std::cout << ASCII_UPPERCASE.at(random_number(1, 26));
                 break;
             case 3:
-                std::cout << ASCII_DIGIT[random_number(0, 9)];
+                std::cout << ASCII_DIGIT.at(random_number(0, 9));
                 break;
             case 4:
-                std::cout << ASCII_SYMBOL[random_number(1, 32)];
+                std::cout << ASCII_SYMBOL.at(random_number(1, 32));
                 break;
         }
     }

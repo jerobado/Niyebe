@@ -1,7 +1,10 @@
+#ifndef ASCII_CHARACTERS_H
+#define ASCII_CHARACTERS_H
+
 #include <unordered_map>
 
 
-std::unordered_map<int, char> ASCII_DIGIT {
+inline const std::unordered_map<int, char> ASCII_DIGIT {
     {0, '0'},
     {1, '1'},
     {2, '2'},
@@ -14,7 +17,7 @@ std::unordered_map<int, char> ASCII_DIGIT {
     {9, '9'},
 };
 
-std::unordered_map<int, char> ASCII_SYMBOL {
+inline const std::unordered_map<int, char> ASCII_SYMBOL {
     { 1, '!'},
     { 2, '"'},
     { 3, '#'},
@@ -49,7 +52,7 @@ std::unordered_map<int, char> ASCII_SYMBOL {
     {32, '~'},
 };
 
-std::unordered_map<int, char> ASCII_UPPERCASE {
+inline const std::unordered_map<int, char> ASCII_UPPERCASE {
     { 1, 'A'},
     { 2, 'B'},
     { 3, 'C'},
@@ -78,7 +81,7 @@ std::unordered_map<int, char> ASCII_UPPERCASE {
     {26, 'Z'},
 };
 
-std::unordered_map<int, char> ASCII_LOWERCASE {
+inline const std::unordered_map<int, char> ASCII_LOWERCASE {
     { 1, 'a'},
     { 2, 'b'},
     { 3, 'c'},
@@ -106,3 +109,6 @@ std::unordered_map<int, char> ASCII_LOWERCASE {
     {25, 'y'},
     {26, 'z'},
 };
+
+
+#endif
