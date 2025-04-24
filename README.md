@@ -59,6 +59,14 @@ Using `mingw32-make`
 
 ### Linux
 
+Using `cmake`
+```
+$ cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Debug -B build/debug
+$ cmake --build build/debug
+$ ./build/debug/bin/niyebe
+```
+
+
 Using `make`
 ```
 $ make
