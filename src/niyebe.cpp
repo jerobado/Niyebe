@@ -1,5 +1,5 @@
-#include "ascii_characters.h"
 #include "niyebe.h"
+#include "encryption.h"
 #include <openssl/opensslv.h>
 
 
@@ -47,46 +47,6 @@ std::optional<int> parse_command(int argc, char **argv)
 }
 
 
-// [] TODO: analyze generated seed if its unique and no duplicate
-int random_number(int start, int end)
-{
-    /* Return a random number between start and end. */
-   
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::mt19937_64 randomizer (seed);
-    std::uniform_int_distribution<int> choices(start, end);
-
-    return choices(randomizer);
-}
-
-
-// [] TODO: add simple string stistics, ie, total length, number of characters, etc.
-void random_string(int length)
-{
-    /* Primary function that will generate a random string based on the given length. */
-
-    for (int i=0; i < length; ++i)
-    {
-        switch(random_number(1, 4))
-        {
-            case 1:
-                std::cout << ASCII_LOWERCASE.at(random_number(1, 26));
-                break;
-            case 2:
-                std::cout << ASCII_UPPERCASE.at(random_number(1, 26));
-                break;
-            case 3:
-                std::cout << ASCII_DIGIT.at(random_number(0, 9));
-                break;
-            case 4:
-                std::cout << ASCII_SYMBOL.at(random_number(1, 32));
-                break;
-        }
-    }
-    std::cout << "\n";
-}
-
-
 // Options
 void help_option()
 {
@@ -94,7 +54,7 @@ void help_option()
     std::cout << std::endl;
     std::cout << "Example:\n";
     std::cout << "$ niyebe --length 16\n";
-    random_string(16);
+    generate_random_string(16);
     std::cout << std::endl;
     std::cout << "Options:\n";
     std::cout << " -h, --help\t\t" << "Display this information\n";
