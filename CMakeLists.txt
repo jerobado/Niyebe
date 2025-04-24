@@ -2,9 +2,9 @@
 Build instruction
 
 Windows
-> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -B build
-> cmake --build build
-> .\build\bin\niyebe.exe 
+> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Debug -B build/debug
+> cmake --build build/debug
+> .\build\debug\bin\niyebe.exe 
 
 Linux
 $ cmake -H. -Bbuild
