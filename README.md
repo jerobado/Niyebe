@@ -22,6 +22,7 @@ _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_
 ### Windows
 - CMake
 - MinGW or Cygwin
+- OpenSSL
 
 ### Linux
 - GNU Compiler Collection
