@@ -17,11 +17,25 @@ cmake_minimum_required(VERSION 3.10)
 
 project(Niyebe VERSION 1.1.0)
 
-set(OPENSSL_ROOT_DIR "C:/Qt/Tools/OpenSSLv3/Win_x64")
-set(OPENSSL_INCLUDE_DIR "${OPENSSL_ROOT_DIR}/include")
-set(OPENSSL_LIBRARIES "${OPENSSL_ROOT_DIR}/lib/libssl.lib;${OPENSSL_ROOT_DIR}/lib/libcrypto.lib")
+function(windows_setup)    
+    set(OPENSSL_ROOT_DIR "C:/Qt/Tools/OpenSSLv3/Win_x64")
+    set(OPENSSL_INCLUDE_DIR "${OPENSSL_ROOT_DIR}/include")
+    set(OPENSSL_LIBRARIES "${OPENSSL_ROOT_DIR}/lib/libssl.lib;${OPENSSL_ROOT_DIR}/lib/libcrypto.lib")
+    find_package(OpenSSL REQUIRED)
+endfunction()
 
-find_package(OpenSSL REQUIRED)
+function(linux_setup)
+    set(OPENSSL_ROOT_DIR "/usr/local/ssl")
+    set(OPENSSL_INCLUDE_DIR "/usr/local/include")
+    find_package(OpenSSL REQUIRED)
+endfunction()
+
+if(WIN32)
+    windows_setup()
+elseif(UNIX)
+    linux_setup()
+endif()
+
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
