@@ -54,7 +54,7 @@ void help_option()
     std::cout << std::endl;
     std::cout << "Example:\n";
     std::cout << "$ niyebe --length 16\n";
-    generate_random_string(16);
+    std::cout << generate_random_string(16) << std::endl;
     std::cout << std::endl;
     std::cout << "Options:\n";
     std::cout << " -h, --help\t\t" << "Display this information\n";
