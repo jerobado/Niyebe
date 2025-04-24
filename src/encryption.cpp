@@ -23,6 +23,8 @@ int get_random_number(int min, int max)
 std::string generate_random_string(int length)
 {
     std::string result;
+    result.reserve(length);
+    
     for (int i=0; i < length; ++i)
     {
         switch (get_random_number(1, 4))
@@ -30,7 +32,7 @@ std::string generate_random_string(int length)
             case 1:
                 result += ASCII_LOWERCASE.at(get_random_number(1, 26));
                 break;
-                case 2:
+            case 2:
                 result += ASCII_UPPERCASE.at(get_random_number(1, 26));
                 break;
             case 3:
