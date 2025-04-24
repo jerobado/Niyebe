@@ -10,7 +10,8 @@ int main(int argc, char **argv)
     if (result.has_value())
     {
         auto string_length = result.value();
-        generate_random_string(string_length);
+        auto random_string = generate_random_string(string_length);
+        std::cout << random_string << std::endl;
     }
 
     return 0;
