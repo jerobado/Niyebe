@@ -21,12 +21,11 @@ std::optional<int> parse_command(int argc, char **argv)
     {
         static struct option long_options[] = {
             {"help",    no_argument,        NULL, 'h'},
-            {"length",  required_argument,  NULL, 'l'},
             {"version", no_argument,        NULL, 'v'},
-            {0, 0, 0, 0}
+            {0,         0,                  0,     0 }
         };
         int option_index = 0;
-        option_char = getopt_long(argc, argv, "hvl:", long_options, &option_index);
+        option_char = getopt_long(argc, argv, "hv", long_options, &option_index);
         
         // Exit loop when no more optional characters to process
         if (option_char == -1) break;
@@ -36,8 +35,6 @@ std::optional<int> parse_command(int argc, char **argv)
             case 'h':
                 help_option();
                 return std::nullopt;
-            case 'l':          
-                return length_option(optarg);
             case 'v':
                 version_option();
                 return std::nullopt;
@@ -65,15 +62,14 @@ std::optional<int> parse_command(int argc, char **argv)
 // Options
 void help_option()
 {
-    std::cout << "Usage: niyebe [--length] <number>\n";
+    std::cout << "Usage: niyebe <number> [--help] [--version]\n";
     std::cout << std::endl;
     std::cout << "Example:\n";
-    std::cout << "$ niyebe --length 16\n";
-    std::cout << generate_random_string(16) << std::endl;
+    std::cout << "$ niyebe 46\n";
+    std::cout << generate_random_string(46) << std::endl;
     std::cout << std::endl;
     std::cout << "Options:\n";
     std::cout << " -h, --help\t\t" << "Display this information\n";
-    std::cout << " -l, --length\t\t" << "Generate pseudo-random string based on given length\n";
     std::cout << " -v, --version\t\t" << "Display the program's current version\n";
 }
 
