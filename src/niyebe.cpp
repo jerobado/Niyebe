@@ -16,6 +16,8 @@ void display_welcome_message(int argc)
 
 std::optional<int> parse_command(int argc, char **argv)
 {
+    opterr = 0; // Disable default error message for unknown optional arguments
+
     int option_char;
     while (true)
     {
@@ -37,6 +39,10 @@ std::optional<int> parse_command(int argc, char **argv)
                 return std::nullopt;
             case 'v':
                 version_option();
+                return std::nullopt;
+            case '?':
+                std::cout << "Unknown option.\n\n";
+                help_option();
                 return std::nullopt;
         }
     }
