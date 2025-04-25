@@ -3,10 +3,10 @@
 
 
 int main(int argc, char **argv)
-{
-    display_welcome_message(argc);
-    
+{    
     auto result = parse_command(argc, argv);
+
+    // TODO: create a new function for this, ie. process(result)
     if (result.has_value())
     {
         auto string_length = result.value();

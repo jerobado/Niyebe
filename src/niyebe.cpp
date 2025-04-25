@@ -29,8 +29,7 @@ std::optional<int> parse_command(int argc, char **argv)
         option_char = getopt_long(argc, argv, "hvl:", long_options, &option_index);
         
         // Exit loop when no more optional characters to process
-        if (option_char == -1)
-            return std::nullopt;
+        if (option_char == -1) break;
         
         switch (option_char)
         {
@@ -44,6 +43,22 @@ std::optional<int> parse_command(int argc, char **argv)
                 return std::nullopt;
         }
     }
+
+    if (optind >= argc)
+    {
+        std::cout << "Missing required number.\n\n";
+        help_option();
+        return std::nullopt;
+    }
+
+    if (optind + 1 < argc)
+    {
+        std::cout << "Too many arguments. Only one positional argument is allowed.\n\n";
+        help_option();
+        return std::nullopt;
+    }
+    
+    return length_option(argv[optind]);
 }
 
 
