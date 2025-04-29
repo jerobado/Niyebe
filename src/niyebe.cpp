@@ -3,17 +3,6 @@
 #include <openssl/opensslv.h>
 
 
-void display_welcome_message(int argc)
-{
-    if (argc == 1)
-    {
-        version_option();
-        std::cout << "\nSimple pseudo-random password generator for the forgetful.\n\n";
-        help_option();
-    }
-}
-
-
 std::optional<int> parse_command(int argc, char **argv)
 {
     opterr = 0; // Disable default error message for unknown optional arguments

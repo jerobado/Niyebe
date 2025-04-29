@@ -6,7 +6,6 @@
 
 
 // Program operations
-void display_welcome_message(int argc);
 std::optional<int> parse_command(int argc, char **argv);
 void process(std::optional<int> result);
 
