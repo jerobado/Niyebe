@@ -65,6 +65,17 @@ std::optional<int> parse_command(int argc, char **argv)
 }
 
 
+void process(std::optional<int> result)
+{
+    if (result.has_value())
+    {
+        auto string_length = result.value();
+        auto random_string = generate_random_string(string_length);
+        std::cout << random_string << std::endl;
+    }
+}
+
+
 // Options
 void help_option()
 {
