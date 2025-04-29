@@ -1,22 +1,27 @@
 Niyebe
 ---
-_Niyebe_, simple pseudo-random password generator for the forgetful
+_Niyebe_, simple and secure pseudo-random string generator for the forgetful.
 
 ### Usage
+
+Generate random string with 46 characters:
 ```
-$ niyebe -l 16      # generate random string with 16 characters
-y}n59q\'1W8o=4_i
+$ niyebe 46      
+FYiM6%F[4"76.Td4<[xH3m2QEk-Pvoi%16H7H9mqEzp3a^
 ```
 
 ### Features & Benefits
-- generate random custom password
+- generate secure random strings based on given length
+- using OpenSSL under the hood
 
 ### Random Algorithm
-_Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister) to generate a pseudo-random number which is provided by the `<random>` header in the C++ standard library.
+Niyebe is using OpenSSL's `RAND_bytes` function to generate secure random string.
 
 
 ### System Requirements
-- Operating System: Linux (Ubuntu 64-bit) or Windows 10/11 (64-bit)
+- Operating System:
+    - Ubuntu, Debian (64-bit)
+    - Windows 10 or 11 (64-bit)
 
 ## Software Requirements
 ### Windows
@@ -26,6 +31,8 @@ _Niyebe_ is using the [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_
 
 ### Linux
 - GNU Compiler Collection
+- CMake
+- OpenSSL
 
 
 ## Build Instruction
