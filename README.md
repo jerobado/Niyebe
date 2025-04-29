@@ -1,4 +1,4 @@
-Niyebe
+❄️ Niyebe
 ---
 _Niyebe_, simple and secure pseudo-random string generator for the forgetful.
 
