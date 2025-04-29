@@ -46,7 +46,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-Wall -Wextra -O2")
 
 set(${PROJECT_NAME}_VERSION_MAJOR 1)
 set(${PROJECT_NAME}_VERSION_MINOR 1)
-set(${PROJECT_NAME}_VERSION_PATCH "0-develop")
+set(${PROJECT_NAME}_VERSION_PATCH 0)
 
 configure_file(include/NiyebeConfig.h.in ../include/NiyebeConfig.h)
 
