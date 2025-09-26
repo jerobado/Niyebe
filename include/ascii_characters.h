@@ -1,5 +1,4 @@
-#ifndef ASCII_CHARACTERS_H
-#define ASCII_CHARACTERS_H
+#pragma once
 
 #include <unordered_map>
 
@@ -109,6 +108,3 @@ inline const std::unordered_map<int, char> ASCII_LOWERCASE {
     {25, 'y'},
     {26, 'z'},
 };
-
-
-#endif
