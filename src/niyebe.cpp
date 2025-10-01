@@ -100,8 +100,8 @@ Niyebe::versionOption()
     std::cout << OPENSSL_VERSION_TEXT << std::endl; 
 }
 
-void
-Niyebe::process(std::optional<int> result)
+int
+Niyebe::run()
 {
     if (result.has_value())
     {
@@ -109,11 +109,7 @@ Niyebe::process(std::optional<int> result)
         auto string_length = result.value();
         auto random_string = randomGenerator.generateRandomString(string_length);
         std::cout << random_string << std::endl;
+        return 0;
     }
-}
-
-void
-Niyebe::run()
-{
-    process(result);
+    return 1;
 }
