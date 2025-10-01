@@ -3,6 +3,7 @@
 #include <iostream>
 #include <openssl/rand.h>
 
+
 int
 RandomGenerator::generateRandomNumber(int min, int max)
 {

@@ -1,10 +1,9 @@
 #include "niyebe.h"
-#include "encryption.h"
 
 
 int main(int argc, char **argv)
-{    
-    auto result = parse_command(argc, argv);
-    process(result);
+{
+    Niyebe app(argc, argv);
+    app.run();
     return 0;
 }

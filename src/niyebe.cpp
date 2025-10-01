@@ -3,7 +3,13 @@
 #include <openssl/opensslv.h>
 
 
-std::optional<int> parse_command(int argc, char **argv)
+Niyebe::Niyebe(int argc, char **argv)
+{
+    result = parseArguments(argc, argv);
+}
+
+std::optional<int>
+Niyebe::parseArguments(int argc, char **argv)
 {
     opterr = 0; // Disable default error message for unknown optional arguments
 
@@ -24,14 +30,14 @@ std::optional<int> parse_command(int argc, char **argv)
         switch (option_char)
         {
             case 'h':
-                help_option();
+                helpOption();
                 return std::nullopt;
             case 'v':
-                version_option();
+                versionOption();
                 return std::nullopt;
             case '?':
                 std::cout << "Unknown option.\n\n";
-                help_option();
+                helpOption();
                 return std::nullopt;
         }
     }
@@ -39,38 +45,24 @@ std::optional<int> parse_command(int argc, char **argv)
     if (optind >= argc)
     {
         std::cout << "Missing required number.\n\n";
-        help_option();
+        helpOption();
         return std::nullopt;
     }
 
     if (optind + 1 < argc)
     {
         std::cout << "Too many arguments. Only one positional argument is allowed.\n\n";
-        help_option();
+        helpOption();
         return std::nullopt;
     }
     
-    return length_option(argv[optind]);
+    return lengthOption(argv[optind]);
 }
 
-
-void process(std::optional<int> result)
-{
-    if (result.has_value())
-    {
-        RandomGenerator randomGenerator;
-        auto string_length = result.value();
-        auto random_string = randomGenerator.generateRandomString(string_length);
-        std::cout << random_string << std::endl;
-    }
-}
-
-
-// Options
-void help_option()
+void
+Niyebe::helpOption()
 {
     RandomGenerator randomGenerator;
-
     std::cout << "Usage: niyebe <number> [--help] [--version]\n";
     std::cout << std::endl;
     std::cout << "Example:\n";
@@ -82,28 +74,46 @@ void help_option()
     std::cout << " -v, --version\t\t" << "Display the program's current version\n";
 }
 
-
-std::optional<int> length_option(std::string input)
+std::optional<int>
+Niyebe::lengthOption(std::string length)
 {
     try
     {
         int string_length;
-        string_length = std::stoi(input);
+        string_length = std::stoi(length);
         return string_length;
     }
     catch(const std::invalid_argument& e)
     {
-        std::cout << "INPUT ERROR: " << "\"" << input << "\"" << " is not a valid number.\n\n";
+        std::cout << "INPUT ERROR: " << "\"" << length << "\"" << " is not a valid number.\n\n";
         std::cout << "Suggestion: Try entering numbers from 1-100.\n";
         return std::nullopt;
     }
 }
 
-
-void version_option()
+void
+Niyebe::versionOption()
 {
     std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
                            << Niyebe_VERSION_MINOR << "."
                            << Niyebe_VERSION_PATCH << std::endl;
-    std::cout << OPENSSL_VERSION_TEXT << std::endl;                           
+    std::cout << OPENSSL_VERSION_TEXT << std::endl; 
+}
+
+void
+Niyebe::process(std::optional<int> result)
+{
+    if (result.has_value())
+    {
+        RandomGenerator randomGenerator;
+        auto string_length = result.value();
+        auto random_string = randomGenerator.generateRandomString(string_length);
+        std::cout << random_string << std::endl;
+    }
+}
+
+void
+Niyebe::run()
+{
+    process(result);
 }
