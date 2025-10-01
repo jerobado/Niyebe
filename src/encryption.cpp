@@ -3,8 +3,8 @@
 #include <iostream>
 #include <openssl/rand.h>
 
-
-int get_random_number(int min, int max)
+int
+RandomGenerator::generateRandomNumber(int min, int max)
 {
     unsigned char random_byte;
     if (RAND_bytes(&random_byte, 1) != 1)
@@ -19,27 +19,27 @@ int get_random_number(int min, int max)
     return random_number;
 }
 
-
-std::string generate_random_string(int length)
+std::string 
+RandomGenerator::generateRandomString(int stringLength)
 {
     std::string result;
-    result.reserve(length);
+    result.reserve(stringLength);
     
-    for (int i=0; i < length; ++i)
+    for (int i=0; i < stringLength; ++i)
     {
-        switch (get_random_number(1, 4))
+        switch (generateRandomNumber(1, 4))
         {
             case 1:
-                result += ASCII_LOWERCASE.at(get_random_number(1, 26));
+                result += ASCII_LOWERCASE.at(generateRandomNumber(1, 26));
                 break;
             case 2:
-                result += ASCII_UPPERCASE.at(get_random_number(1, 26));
+                result += ASCII_UPPERCASE.at(generateRandomNumber(1, 26));
                 break;
             case 3:
-                result += ASCII_DIGIT.at(get_random_number(0, 9));
+                result += ASCII_DIGIT.at(generateRandomNumber(0, 9));
                 break;
             case 4:
-                result += ASCII_SYMBOL.at(get_random_number(1, 32));
+                result += ASCII_SYMBOL.at(generateRandomNumber(1, 32));
                 break;
         }
     }

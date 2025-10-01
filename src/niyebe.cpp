@@ -58,8 +58,9 @@ void process(std::optional<int> result)
 {
     if (result.has_value())
     {
+        RandomGenerator randomGenerator;
         auto string_length = result.value();
-        auto random_string = generate_random_string(string_length);
+        auto random_string = randomGenerator.generateRandomString(string_length);
         std::cout << random_string << std::endl;
     }
 }
@@ -68,11 +69,13 @@ void process(std::optional<int> result)
 // Options
 void help_option()
 {
+    RandomGenerator randomGenerator;
+
     std::cout << "Usage: niyebe <number> [--help] [--version]\n";
     std::cout << std::endl;
     std::cout << "Example:\n";
     std::cout << "$ niyebe 46\n";
-    std::cout << generate_random_string(46) << std::endl;
+    std::cout << randomGenerator.generateRandomString(46) << std::endl;
     std::cout << std::endl;
     std::cout << "Options:\n";
     std::cout << " -h, --help\t\t" << "Display this information\n";
