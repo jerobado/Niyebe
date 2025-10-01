@@ -109,7 +109,7 @@ Niyebe::run()
         auto string_length = result.value();
         auto random_string = randomGenerator.generateRandomString(string_length);
         std::cout << random_string << std::endl;
-        return 0;
+        return EXIT_SUCCESS;
     }
-    return 1;
+    return EXIT_FAILURE;
 }
