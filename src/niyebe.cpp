@@ -1,5 +1,6 @@
 #include "niyebe.h"
 #include "encryption.h"
+#include <format>
 #include <openssl/opensslv.h>
 
 
@@ -85,7 +86,7 @@ Niyebe::lengthOption(std::string length)
     }
     catch(const std::invalid_argument& e)
     {
-        std::cout << "INPUT ERROR: " << "\"" << length << "\"" << " is not a valid number.\n\n";
+        std::cout << std::format("INPUT ERROR: '{}' is not a number.\n\n", length);
         std::cout << "Suggestion: Try entering numbers from 1-100.\n";
         return std::nullopt;
     }
@@ -94,10 +95,8 @@ Niyebe::lengthOption(std::string length)
 void
 Niyebe::versionOption()
 {
-    std::cout << "Niyebe " << Niyebe_VERSION_MAJOR << "." 
-                           << Niyebe_VERSION_MINOR << "."
-                           << Niyebe_VERSION_PATCH << std::endl;
-    std::cout << OPENSSL_VERSION_TEXT << std::endl; 
+    std::cout << std::format("Niyebe {}.{}.{}\n", Niyebe_VERSION_MAJOR, Niyebe_VERSION_MINOR, Niyebe_VERSION_PATCH);
+    std::cout << std::format("{}\n", OPENSSL_VERSION_TEXT);
 }
 
 int
