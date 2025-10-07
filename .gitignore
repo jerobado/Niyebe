@@ -6,9 +6,11 @@ _todo.txt
 .vs
 
 # CMake
-/build
+build
+out
 /CMakeFiles
 CMakeCache.txt
+CMakeSettings.json
 *.cmake
 
 # Compiler stuff
