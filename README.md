@@ -26,8 +26,9 @@ Niyebe is using OpenSSL's `RAND_bytes` function to generate secure random string
 ## Software Requirements
 ### Windows
 - CMake
-- MinGW or Cygwin
+- MinGW
 - OpenSSL
+- MSYS2
 
 ### Linux
 - GNU Compiler Collection
