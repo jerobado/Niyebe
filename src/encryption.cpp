@@ -46,3 +46,17 @@ RandomGenerator::generateRandomString(int stringLength)
     }
     return result;
 }
+
+std::string
+RandomGenerator::generateRandomDigits(int stringLength)
+{
+    std::string result;
+    result.reserve(stringLength);
+
+    for (int index=0; index < stringLength; ++index)
+    {
+        result += ASCII_DIGIT.at(generateRandomNumber(0, 9));
+    }
+
+    return result;
+}

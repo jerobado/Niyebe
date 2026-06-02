@@ -19,4 +19,5 @@ class Niyebe
         void helpOption();
         void versionOption();
         std::optional<int> lengthOption(std::string length);
+        bool isDigitsOnly;
 };

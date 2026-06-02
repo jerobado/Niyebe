@@ -14,16 +14,20 @@ Niyebe::parseArguments(int argc, char **argv)
 {
     opterr = 0; // Disable default error message for unknown optional arguments
 
+    isDigitsOnly = false;
+
     int option_char;
     while (true)
     {
+        // TODO: use nullptr instead of NULL
         static struct option long_options[] = {
-            {"help",    no_argument,        NULL, 'h'},
-            {"version", no_argument,        NULL, 'v'},
-            {0,         0,                  0,     0 }
+            {"help",    no_argument,    NULL, 'h'},
+            {"version", no_argument,    NULL, 'v'},
+            {"digits",  no_argument,    NULL, 'd'},
+            {0,         0,              0,     0 }
         };
         int option_index = 0;
-        option_char = getopt_long(argc, argv, "hv", long_options, &option_index);
+        option_char = getopt_long(argc, argv, "hvf", long_options, &option_index);
         
         // Exit loop when no more optional characters to process
         if (option_char == -1) break;
@@ -36,6 +40,9 @@ Niyebe::parseArguments(int argc, char **argv)
             case 'v':
                 versionOption();
                 return std::nullopt;
+            case 'd':
+                isDigitsOnly = true;
+                break;
             case '?':
                 std::cout << "Unknown option.\n\n";
                 helpOption();
@@ -64,7 +71,7 @@ void
 Niyebe::helpOption()
 {
     RandomGenerator randomGenerator;
-    std::cout << "Usage: niyebe <number> [--help] [--version]\n";
+    std::cout << "Usage: niyebe <number> [option]\n";
     std::cout << std::endl;
     std::cout << "Example:\n";
     std::cout << "$ niyebe 46\n";
@@ -73,6 +80,7 @@ Niyebe::helpOption()
     std::cout << "Options:\n";
     std::cout << " -h, --help\t\t" << "Display this information\n";
     std::cout << " -v, --version\t\t" << "Display the program's current version\n";
+    std::cout << " -d, --digits\t\t" << "Generate random digits only\n";
 }
 
 std::optional<int>
@@ -106,7 +114,17 @@ Niyebe::run()
     {
         RandomGenerator randomGenerator;
         auto string_length = result.value();
-        auto random_string = randomGenerator.generateRandomString(string_length);
+        std::string random_string;
+
+        if (isDigitsOnly)
+        {
+            random_string = randomGenerator.generateRandomDigits(string_length);
+        }
+        else
+        {
+            random_string = randomGenerator.generateRandomString(string_length);
+        }
+
         std::cout << random_string << std::endl;
         return EXIT_SUCCESS;
     }
