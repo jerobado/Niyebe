@@ -79,7 +79,7 @@ Niyebe::helpOption()
     std::cout << std::endl;
     std::cout << "Example:\n";
     std::cout << "$ niyebe 46\n";
-    std::cout << randomGenerator.generateRandomString(46) << std::endl;
+    std::cout << randomGenerator.generateString(46) << std::endl;
     std::cout << std::endl;
     std::cout << "Options:\n";
     std::cout << " -h, --help\t\t" << "Display this information\n";
@@ -123,7 +123,7 @@ Niyebe::run()
 
         if (isDigitsOnly)
         {
-            random_string = randomGenerator.generateRandomDigits(string_length);
+            random_string = randomGenerator.generateDigits(string_length);
         }
         else if (isLowercaseOnly)
         {
@@ -131,7 +131,7 @@ Niyebe::run()
         }
         else
         {
-            random_string = randomGenerator.generateRandomString(string_length);
+            random_string = randomGenerator.generateString(string_length);
         }
 
         std::cout << random_string << std::endl;

@@ -21,7 +21,7 @@ RandomGenerator::generateRandomNumber(int min, int max)
 }
 
 std::string 
-RandomGenerator::generateRandomString(int stringLength)
+RandomGenerator::generateString(int stringLength)
 {
     std::string result;
     result.reserve(stringLength);
@@ -48,7 +48,7 @@ RandomGenerator::generateRandomString(int stringLength)
 }
 
 std::string
-RandomGenerator::generateRandomDigits(int stringLength)
+RandomGenerator::generateDigits(int stringLength)
 {
     std::string result;
     result.reserve(stringLength);
