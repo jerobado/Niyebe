@@ -20,12 +20,11 @@ Niyebe::parseArguments(int argc, char **argv)
     int option_char;
     while (true)
     {
-        // TODO: use nullptr instead of NULL
         static struct option long_options[] = {
-            {"help",       no_argument,    NULL, 'h'},
-            {"version",    no_argument,    NULL, 'v'},
-            {"digits",     no_argument,    NULL, 'd'},
-            {"lowercase",  no_argument,    NULL, 'l'},
+            {"help",       no_argument,    nullptr, 'h'},
+            {"version",    no_argument,    nullptr, 'v'},
+            {"digits",     no_argument,    nullptr, 'd'},
+            {"lowercase",  no_argument,    nullptr, 'l'},
             {0,            0,              0,     0 }
         };
         int option_index = 0;
