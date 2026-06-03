@@ -60,3 +60,17 @@ RandomGenerator::generateRandomDigits(int stringLength)
 
     return result;
 }
+
+std::string
+RandomGenerator::generateLowercase(int stringLength)
+{
+    std::string result;
+    result.reserve(stringLength);
+
+    for (int index = 0; index < stringLength; ++index)
+    {
+        result += ASCII_LOWERCASE.at(generateRandomNumber(1, 26));
+    }
+
+    return result;
+}

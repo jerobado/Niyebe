@@ -20,4 +20,5 @@ class Niyebe
         void versionOption();
         std::optional<int> lengthOption(std::string length);
         bool isDigitsOnly;
+        bool isLowercaseOnly;
 };

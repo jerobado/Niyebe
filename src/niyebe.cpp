@@ -15,16 +15,18 @@ Niyebe::parseArguments(int argc, char **argv)
     opterr = 0; // Disable default error message for unknown optional arguments
 
     isDigitsOnly = false;
+    isLowercaseOnly = false;
 
     int option_char;
     while (true)
     {
         // TODO: use nullptr instead of NULL
         static struct option long_options[] = {
-            {"help",    no_argument,    NULL, 'h'},
-            {"version", no_argument,    NULL, 'v'},
-            {"digits",  no_argument,    NULL, 'd'},
-            {0,         0,              0,     0 }
+            {"help",       no_argument,    NULL, 'h'},
+            {"version",    no_argument,    NULL, 'v'},
+            {"digits",     no_argument,    NULL, 'd'},
+            {"lowercase",  no_argument,    NULL, 'l'},
+            {0,            0,              0,     0 }
         };
         int option_index = 0;
         option_char = getopt_long(argc, argv, "hvf", long_options, &option_index);
@@ -42,6 +44,9 @@ Niyebe::parseArguments(int argc, char **argv)
                 return std::nullopt;
             case 'd':
                 isDigitsOnly = true;
+                break;
+            case 'l':
+                isLowercaseOnly = true;
                 break;
             case '?':
                 std::cout << "Unknown option.\n\n";
@@ -81,6 +86,7 @@ Niyebe::helpOption()
     std::cout << " -h, --help\t\t" << "Display this information\n";
     std::cout << " -v, --version\t\t" << "Display the program's current version\n";
     std::cout << " -d, --digits\t\t" << "Generate random digits only\n";
+    std::cout << " -l, --lowercase\t" << "Generate random lowercase ASCII characters only\n";
 }
 
 std::optional<int>
@@ -119,6 +125,10 @@ Niyebe::run()
         if (isDigitsOnly)
         {
             random_string = randomGenerator.generateRandomDigits(string_length);
+        }
+        else if (isLowercaseOnly)
+        {
+            random_string = randomGenerator.generateLowercase(string_length);
         }
         else
         {
