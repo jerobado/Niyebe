@@ -1,6 +1,7 @@
 #include "encryption.h"
 #include "ascii_characters.h"
 #include <iostream>
+#include <ranges>
 #include <openssl/rand.h>
 
 
@@ -26,7 +27,8 @@ RandomGenerator::generateString(int stringLength)
     std::string result;
     result.reserve(stringLength);
     
-    for (int i=0; i < stringLength; ++i)
+    auto range = std::views::iota(0, stringLength);
+    for ([[maybe_unused]] int unusedIndex : range)
     {
         switch (generateRandomNumber(1, 4))
         {
@@ -53,7 +55,8 @@ RandomGenerator::generateDigits(int stringLength)
     std::string result;
     result.reserve(stringLength);
 
-    for (int index=0; index < stringLength; ++index)
+    auto range = std::views::iota(0, stringLength);
+    for ([[maybe_unused]] int unusedIndex : range)
     {
         result += ASCII_DIGIT.at(generateRandomNumber(0, 9));
     }
@@ -67,7 +70,8 @@ RandomGenerator::generateLowercase(int stringLength)
     std::string result;
     result.reserve(stringLength);
 
-    for (int index = 0; index < stringLength; ++index)
+    auto range = std::views::iota(0, stringLength);
+    for ([[maybe_unused]] int unusedIndex : range)
     {
         result += ASCII_LOWERCASE.at(generateRandomNumber(1, 26));
     }
