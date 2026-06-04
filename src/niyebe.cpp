@@ -122,33 +122,29 @@ Niyebe::versionOption()
 int
 Niyebe::run()
 {
-    // TODO: refactor by using guard clause
+    if (!result.has_value()) return EXIT_FAILURE;
+    
+    RandomGenerator randomGenerator;
+    auto string_length = result.value();
+    std::string random_string;
 
-    if (result.has_value())
+    if (isDigitsOnly)
     {
-        RandomGenerator randomGenerator;
-        auto string_length = result.value();
-        std::string random_string;
-
-        if (isDigitsOnly)
-        {
-            random_string = randomGenerator.generateDigits(string_length);
-        }
-        else if (isLowercaseOnly)
-        {
-            random_string = randomGenerator.generateLowercase(string_length);
-        }
-        else if (isUppercaseOnly)
-        {
-            random_string = randomGenerator.generateUppercase(string_length);
-        }
-        else
-        {
-            random_string = randomGenerator.generateString(string_length);
-        }
-
-        std::cout << random_string << std::endl;
-        return EXIT_SUCCESS;
+        random_string = randomGenerator.generateDigits(string_length);
     }
-    return EXIT_FAILURE;
+    else if (isLowercaseOnly)
+    {
+        random_string = randomGenerator.generateLowercase(string_length);
+    }
+    else if (isUppercaseOnly)
+    {
+        random_string = randomGenerator.generateUppercase(string_length);
+    }
+    else
+    {
+        random_string = randomGenerator.generateString(string_length);
+    }
+
+    std::cout << random_string << std::endl;
+    return EXIT_SUCCESS;
 }
