@@ -78,3 +78,18 @@ RandomGenerator::generateLowercase(int stringLength)
 
     return result;
 }
+
+std::string
+RandomGenerator::generateUppercase(int stringLength)
+{
+    std::string result;
+    result.reserve(stringLength);
+
+    auto range = std::views::iota(0, stringLength);
+    for ([[maybe_unused]] int unusedIndex : range)
+    {
+        result += ASCII_UPPERCASE.at(generateRandomNumber(1, 26));
+    }
+
+    return result;
+}

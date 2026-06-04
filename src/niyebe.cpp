@@ -16,6 +16,7 @@ Niyebe::parseArguments(int argc, char **argv)
 
     isDigitsOnly = false;
     isLowercaseOnly = false;
+    isUppercaseOnly = false;
 
     int option_char;
     while (true)
@@ -25,6 +26,7 @@ Niyebe::parseArguments(int argc, char **argv)
             {"version",    no_argument,    nullptr, 'v'},
             {"digits",     no_argument,    nullptr, 'd'},
             {"lowercase",  no_argument,    nullptr, 'l'},
+            {"uppercase",  no_argument,    nullptr, 'u'},
             {0,            0,              0,     0 }
         };
         int option_index = 0;
@@ -46,6 +48,9 @@ Niyebe::parseArguments(int argc, char **argv)
                 break;
             case 'l':
                 isLowercaseOnly = true;
+                break;
+            case 'u':
+                isUppercaseOnly = true;
                 break;
             case '?':
                 std::cout << "Unknown option.\n\n";
@@ -86,6 +91,8 @@ Niyebe::helpOption()
     std::cout << " -v, --version\t\t" << "Display the program's current version\n";
     std::cout << " -d, --digits\t\t" << "Generate random digits only\n";
     std::cout << " -l, --lowercase\t" << "Generate random lowercase ASCII characters only\n";
+    std::cout << " -u, --uppercase\t" << "Generate random uppercase ASCII characters only\n";
+    std::cout << std::endl;
 }
 
 std::optional<int>
@@ -115,6 +122,8 @@ Niyebe::versionOption()
 int
 Niyebe::run()
 {
+    // TODO: refactor by using guard clause
+
     if (result.has_value())
     {
         RandomGenerator randomGenerator;
@@ -128,6 +137,10 @@ Niyebe::run()
         else if (isLowercaseOnly)
         {
             random_string = randomGenerator.generateLowercase(string_length);
+        }
+        else if (isUppercaseOnly)
+        {
+            random_string = randomGenerator.generateUppercase(string_length);
         }
         else
         {

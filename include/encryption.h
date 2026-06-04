@@ -10,6 +10,7 @@ class IRandomGenerator
         virtual std::string generateString(int stringLength) = 0;
         virtual std::string generateDigits(int stringLength) = 0;
         virtual std::string generateLowercase(int stringLength) = 0;
+        virtual std::string generateUppercase(int stringLength) = 0;
         virtual ~IRandomGenerator() { }
 };
 
@@ -21,4 +22,5 @@ class RandomGenerator : public IRandomGenerator
         std::string generateString(int stringLength) override;
         std::string generateDigits(int stringLength) override;
         std::string generateLowercase(int stringLength) override;
+        std::string generateUppercase(int stringLength) override;
 };
