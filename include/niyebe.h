@@ -22,4 +22,5 @@ class Niyebe
         bool isDigitsOnly;
         bool isLowercaseOnly;
         bool isUppercaseOnly;
+        bool isSymbolsOnly;
 };

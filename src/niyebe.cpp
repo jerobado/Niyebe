@@ -17,6 +17,7 @@ Niyebe::parseArguments(int argc, char **argv)
     isDigitsOnly = false;
     isLowercaseOnly = false;
     isUppercaseOnly = false;
+    isSymbolsOnly = false;
 
     int option_char;
     while (true)
@@ -27,10 +28,11 @@ Niyebe::parseArguments(int argc, char **argv)
             {"digits",     no_argument,    nullptr, 'd'},
             {"lowercase",  no_argument,    nullptr, 'l'},
             {"uppercase",  no_argument,    nullptr, 'u'},
+            {"symbols",    no_argument,    nullptr, 's'},
             {0,            0,              0,     0 }
         };
         int option_index = 0;
-        option_char = getopt_long(argc, argv, "hvf", long_options, &option_index);
+        option_char = getopt_long(argc, argv, "hvdlus", long_options, &option_index);
         
         // Exit loop when no more optional characters to process
         if (option_char == -1) break;
@@ -51,6 +53,9 @@ Niyebe::parseArguments(int argc, char **argv)
                 break;
             case 'u':
                 isUppercaseOnly = true;
+                break;
+            case 's':
+                isSymbolsOnly = true;
                 break;
             case '?':
                 std::cout << "Unknown option.\n\n";
@@ -92,6 +97,7 @@ Niyebe::helpOption()
     std::cout << " -d, --digits\t\t" << "Generate random digits only\n";
     std::cout << " -l, --lowercase\t" << "Generate random lowercase ASCII characters only\n";
     std::cout << " -u, --uppercase\t" << "Generate random uppercase ASCII characters only\n";
+    std::cout << " -s, --symbols\t\t" << "Generate random ASCII special characters only\n";
     std::cout << std::endl;
 }
 
@@ -139,6 +145,10 @@ Niyebe::run()
     else if (isUppercaseOnly)
     {
         random_string = randomGenerator.generateUppercase(string_length);
+    }
+    else if (isSymbolsOnly)
+    {
+        random_string = randomGenerator.generateSymbols(string_length);
     }
     else
     {

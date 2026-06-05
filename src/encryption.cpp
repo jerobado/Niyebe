@@ -93,3 +93,18 @@ RandomGenerator::generateUppercase(int stringLength)
 
     return result;
 }
+
+std::string
+RandomGenerator::generateSymbols(int stringLength)
+{
+    std::string result;
+    result.reserve(stringLength);
+
+    auto range = std::views::iota(0, stringLength);
+    for ([[maybe_unused]] int unusedIndex : range)
+    {
+        result += ASCII_SYMBOL.at(generateRandomNumber(1, 32));
+    }
+
+    return result;
+}
