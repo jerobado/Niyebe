@@ -15,7 +15,7 @@ $ ./build/bin/niyebe
 
 cmake_minimum_required(VERSION 3.10)
 
-project(Niyebe VERSION 1.1.0)
+project(Niyebe VERSION 1.2.0)
 
 function(windows_setup)    
     set(OPENSSL_ROOT_DIR "C:/msys64/ucrt64")
@@ -47,23 +47,28 @@ set(CMAKE_CXX_FLAGS_DEBUG "-Wall -Wextra -g")
 set(CMAKE_CXX_FLAGS_RELEASE "-Wall -Wextra -O2")
 
 set(${PROJECT_NAME}_VERSION_MAJOR 1)
-set(${PROJECT_NAME}_VERSION_MINOR 1)
+set(${PROJECT_NAME}_VERSION_MINOR 2)
 set(${PROJECT_NAME}_VERSION_PATCH 0)
 
-configure_file(include/NiyebeConfig.h.in ../include/NiyebeConfig.h)
+configure_file(${CMAKE_SOURCE_DIR}/include/NiyebeConfig.h.in
+               ${CMAKE_BINARY_DIR}/include/NiyebeConfig.h)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-include_directories(OPENSSL_ROOT_DIR)
-include_directories(include)
 
 add_executable(niyebe
                src/main.cpp
                src/niyebe.cpp
-               src/encryption.cpp
-               include/NiyebeConfig.h)
+               src/encryption.cpp)
 
-target_link_libraries(niyebe PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+target_include_directories(niyebe PRIVATE
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_BINARY_DIR}/include
+)
+
+target_link_libraries(niyebe PRIVATE 
+    OpenSSL::SSL 
+    OpenSSL::Crypto
+)
 
 # Install
 # cmake --build build --config Release --target install
@@ -74,5 +79,5 @@ if(UNIX)
 elseif(WIN32)
     message("Platform: ${CMAKE_SYSTEM_NAME}")
     install(PROGRAMS "${CMAKE_BINARY_DIR}/bin/niyebe"
-            DESTINATION "{CMAKE_INSTALL_PREFIX}")
+            DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
 endif()
