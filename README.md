@@ -45,23 +45,23 @@ Using `cmake`
 Debug build
 
 ```
-> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Debug -B build/debug
-> cmake --build build/debug
+> cmake.exe -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Debug -B build/debug
+> cmake.exe --build build/debug
 > .\build\debug\bin\niyebe.exe 
 ```
 
 Release build
 
 ```
-> cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Release -B build/release
-> cmake --build build/release
+> cmake.exe -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Release -B build/release
+> cmake.exe --build build/release
 > .\build\release\bin\niyebe.exe 
 ```
 
 Using `mingw32-make`
 
 ```
-> mingw32-make
+> mingw32-make.exe
 > niyebe.exe
 ```
 
