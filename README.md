@@ -32,8 +32,9 @@ Niyebe is using OpenSSL's `RAND_bytes` function to generate secure random string
 
 ### Linux
 - GNU Compiler Collection
+- Git
 - CMake
-- OpenSSL
+- libssl-dev
 
 
 ## Build Instruction
