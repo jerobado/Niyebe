@@ -27,14 +27,14 @@ function(windows_setup)
 endfunction()
 
 function(linux_setup)
-    set(OPENSSL_ROOT_DIR "/usr/local/ssl")
-    set(OPENSSL_INCLUDE_DIR "/usr/local/include")
     find_package(OpenSSL REQUIRED)
 endfunction()
 
 if(WIN32)
+    message("Using Windows setup")
     windows_setup()
 elseif(UNIX)
+    message("Using Linux setup")
     linux_setup()
 endif()
 
