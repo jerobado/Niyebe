@@ -78,6 +78,6 @@ if(UNIX)
             RUNTIME DESTINATION bin)
 elseif(WIN32)
     message("Platform: ${CMAKE_SYSTEM_NAME}")
-    install(PROGRAMS "${CMAKE_BINARY_DIR}/bin/niyebe"
-            DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
+    install(TARGETS niyebe
+            RUNTIME DESTINATION bin)
 endif()
