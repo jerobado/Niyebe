@@ -68,15 +68,32 @@ Using `mingw32-make`
 
 ### Linux
 
-Using `cmake`
+#### Using `cmake`
+
+Debug build
+
 ```
 $ cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Debug -B build/debug
 $ cmake --build build/debug
 $ ./build/debug/bin/niyebe
 ```
 
+Release build
 
-Using `make`
+```
+$ cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -B build/config
+$ cmake --build build/config
+$ ./build/debug/bin/niyebe
+```
+
+Install
+```
+$ sudo cmake --install build/release --prefix /opt/niyebe
+$ /opt/niyebe/bin/niyebe -v
+```
+
+
+#### Using `make`
 ```
 $ make
 $ ./niyebe
