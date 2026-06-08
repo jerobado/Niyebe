@@ -71,11 +71,11 @@ target_link_libraries(niyebe PRIVATE
 )
 
 # Install
-# cmake --build build --config Release --target install
+# cmake --install build/release --prefix /opt/niyebe
 if(UNIX)
     message("Platform: ${CMAKE_SYSTEM_NAME}")
-    install(PROGRAMS "${CMAKE_BINARY_DIR}/bin/niyebe"
-            DESTINATION "~/Documents/Niyebe")
+    install(TARGETS niyebe
+            RUNTIME DESTINATION bin)
 elseif(WIN32)
     message("Platform: ${CMAKE_SYSTEM_NAME}")
     install(PROGRAMS "${CMAKE_BINARY_DIR}/bin/niyebe"
