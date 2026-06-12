@@ -25,10 +25,12 @@ Niyebe is using OpenSSL's `RAND_bytes` function to generate secure random string
 
 ## Software Requirements
 ### Windows
-- CMake
-- MinGW
-- OpenSSL
-- MSYS2
+- MSYS2 (UCRT64)
+    - CMake - `mingw-w64-ucrt-x86_64-cmake`
+    - MinGW-w64 - `mingw-w64-ucrt-x86_64-gcc` 
+    - OpenSSL - `mingw-w64-ucrt-x86_64-openssl`
+
+    CMake, MinGW and OpenSSL can be installed inside MSYS2 via `pacman`
 
 ### Linux
 - GNU Compiler Collection
@@ -41,22 +43,14 @@ Niyebe is using OpenSSL's `RAND_bytes` function to generate secure random string
 
 ### Windows
 
-Using `cmake`
+Using `cmake` via MSYS2 (UCRT64)
 
-Debug build
+**Debug** build
 
 ```
 > cmake.exe -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Debug -B build/debug
 > cmake.exe --build build/debug
 > .\build\debug\bin\niyebe.exe 
-```
-
-Release build
-
-```
-> cmake.exe -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ -DCMAKE_BUILD_TYPE=Release -B build/release
-> cmake.exe --build build/release
-> .\build\release\bin\niyebe.exe 
 ```
 
 Using `mingw32-make`
@@ -70,28 +64,13 @@ Using `mingw32-make`
 
 #### Using `cmake`
 
-Debug build
+**Debug** build
 
 ```
 $ cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Debug -B build/debug
 $ cmake --build build/debug
 $ ./build/debug/bin/niyebe
 ```
-
-Release build
-
-```
-$ cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -B build/config
-$ cmake --build build/config
-$ ./build/debug/bin/niyebe
-```
-
-Install
-```
-$ sudo cmake --install build/release --prefix /opt/niyebe
-$ /opt/niyebe/bin/niyebe -v
-```
-
 
 #### Using `make`
 ```
@@ -101,14 +80,58 @@ $ ./niyebe
 
 ## Install Instruction
 
+### Windows
+
+1. Create **Release** build
+
+    ```
+    > cmake.exe -G "MinGW Makefiles" \ 
+        -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++ \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_PREFIX_PATH=C:/msys64/ucrt64 \
+        -B build/release
+    > cmake.exe --build build/release
+    > .\build\release\bin\niyebe.exe 
+    ```
+
+2. Install in `C:/Niyebe` directory
+
+    ```
+    > cmake --install build/release --config Release --prefix C:/Niyebe
+    ```
+
+3. Run `niyebe.exe`
+
+    ```
+    > C:/Niyebe/bin/niyebe.exe -v
+    ```
+
 ### Linux
 
-```
-$ sudo make install
-```
-This will install/copy the compiled executable to `/opt/niyebe`.
+
+1. Create **Release** build
+
+    ```
+    $ cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -B build/release
+    $ cmake --build build/release
+    $ ./build/release/bin/niyebe
+    ```
+
+2. Install
+
+    ```
+    $ sudo cmake --install build/release --prefix /opt/niyebe
+    ```
+    This will install/copy the compiled executable to `/opt/niyebe`.
+
+3. Run `niyebe`
+
+    ```
+    $ /opt/niyebe/bin/niyebe -v
+    ```
 
 To add `niyebe` to PATH
+
 ```
 $ echo "export PATH="$PATH:/opt/niyebe"" >> ~/.bashrc
 $ source ~/.bashrc
