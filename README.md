@@ -10,13 +10,36 @@ $ niyebe 46
 FYiM6%F[4"76.Td4<[xH3m2QEk-Pvoi%16H7H9mqEzp3a^
 ```
 
+Generate random digits only
+```
+$ niyebe 20 --digits
+16270019754304914183
+```
+
+Generate random ASCII characters in lowercase (a-z)
+```
+$ niyebe 20 --lowercase
+befkycnjqdxmwwvxeykv
+```
+
+Generate random ASCII characters in uppercase (A-Z)
+```
+$ niyebe 20 --uppercase
+VFBSOUMBDKAOBRLZGVGK
+```
+
+Generate random ASCII special characters
+```
+$ niyebe 20 --symbols
+`;?_.#/?`<\+?_||&`(=
+```
+
 ### Features & Benefits
 - generate secure random strings based on given length
 - using OpenSSL under the hood
 
 ### Random Algorithm
-Niyebe is using OpenSSL's `RAND_bytes` function to generate secure random string.
-
+Niyebe is using OpenSSL's `RAND_bytes` function to generate secure random string. See code in action [here](https://github.com/jerobado/Niyebe/blob/958984f9b24c91e3c0d6f5a6a3cdc65d048fd220/src/encryption.cpp#L9).
 
 ### System Requirements
 - Operating System:
