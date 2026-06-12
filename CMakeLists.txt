@@ -71,13 +71,22 @@ target_link_libraries(niyebe PRIVATE
 )
 
 # Install
-# cmake --install build/release --prefix /opt/niyebe
+
 if(UNIX)
+    # cmake --install build/release --prefix /opt/niyebe
     message("Platform: ${CMAKE_SYSTEM_NAME}")
     install(TARGETS niyebe
             RUNTIME DESTINATION bin)
 elseif(WIN32)
+    # cmake --install build/release --config Release --prefix C:/Niyebe
     message("Platform: ${CMAKE_SYSTEM_NAME}")
     install(TARGETS niyebe
             RUNTIME DESTINATION bin)
+    install(FILES
+        ${CMAKE_PREFIX_PATH}/bin/libcrypto-3-x64.dll
+        ${CMAKE_PREFIX_PATH}/bin/libgcc_s_seh-1.dll
+        ${CMAKE_PREFIX_PATH}/bin/libssl-3-x64.dll
+        ${CMAKE_PREFIX_PATH}/bin/libstdc++-6.dll
+        ${CMAKE_PREFIX_PATH}/bin/libwinpthread-1.dll
+        DESTINATION bin)
 endif()
