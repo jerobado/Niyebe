@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <Installer>
+        <Name>Niyebe</Name>
+        <Version>1.2.0</Version>
+        <Title>Niyebe 1.2.0 Installer</Title>
+        <Publisher>Jero Bado</Publisher>
+        <StartMenuDir>Niyebe</StartMenuDir>
+        <TargetDir>@ApplicationsDirX64@/Niyebe</TargetDir>
+        <WizardStyle>Classic</WizardStyle>
+    </Installer>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Niyebe</DisplayName>
+    <Description>Niyebe, simple and secure pseudo-random string generator for the forgetful.</Description>
+    <Version>1.2.0</Version>
+    <ReleaseDate>2026-07-01</ReleaseDate>
+    <Licenses>
+        <License name="GNU Lesser General Public License (LGPL) v3.0 Agreement" file="license.txt" />
+    </Licenses>
+    <Default>true</Default>
+</Package>
