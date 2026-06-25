@@ -117,6 +117,12 @@ $ ./niyebe
     > .\build\release\bin\niyebe.exe 
     ```
 
+2. Build
+
+    ```
+    cmake.exe --build build/release
+    ```
+
 2. Install in `C:/Niyebe` directory
 
     ```
